@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->string('nombre_completo');
-            $table->foreignId('rol_id')->constrained('balnearios');
+        Schema::create('taquilla', function (Blueprint $table) {
+            $table->id();
+            $table->string('cadena_QR');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+            $table->timestamps();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('taquilla');
     }
 };
