@@ -11,6 +11,7 @@ use App\Http\Controllers\SuperAdmin\UserController;
 use App\Http\Controllers\SuperAdmin\BalnearioSuperAdminController;
 use App\Http\Controllers\SuperAdmin\EventoController;
 use App\Http\Controllers\SuperAdmin\SuperAdminReportesController;
+use App\Http\Controllers\TaquillaController;
 
 
 /*
@@ -98,6 +99,9 @@ Route::middleware(['auth:sanctum', 'superadmin.auth'])->prefix('superadmin')->gr
     
     // Backup y mantenimiento
     Route::post('/backup', [SuperAdminReportesController::class, 'generarBackup']);
+
+    //Taquilla lectura QR
+Route::post('/verificar-taquilla', [BrazaleteController::class, 'verificarQR']);
 });
 
 // Manejo de rutas no encontradas
